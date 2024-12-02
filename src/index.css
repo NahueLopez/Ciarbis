@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Home */
+/* Fondo con animación de gradiente */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-background {
+    background-size: 200% 200%;
+    animation: backgroundAnimation 6s ease infinite;
+  }
+  
+ /* Rombo con luz que pasa por él */
+@keyframes lightEffect {
+    0% { background: rgba(255, 255, 255, 0.1); }
+    50% { background: rgba(255, 255, 255, 0.3); }
+    100% { background: rgba(255, 255, 255, 0.1); }
+  }
+  
+  .diamond {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg); /* Forma de rombo */
+    animation: lightEffect 6s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  
+  
+/* Equipo */
+.card-container {
+    perspective: 1000px; /* Perspectiva para el efecto 3D */
+  }
+  
+  .card {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .card-container:hover .card {
+    transform: rotateY(180deg); /* Giro en el eje Y */
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+  }
+  
+  .card-front {
+    background-color: white;
+  }
+  
+  .card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg); /* Reverso rotado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
